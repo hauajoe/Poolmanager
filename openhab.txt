@@ -1,0 +1,17 @@
+//In openhab im papaerui die regex Transformation installieren und das http binding
+
+//items ordner: pool.items
+Number Pool_pH "pH Wert [%.1f pH]" {http="<[http://192.168.0.10//cgi-bin/webgui.fcgi?xmlitem=34.4001:60000:REGEX(value="(.*?)")]"}
+Number Pool_Redox "Redox Wert [%.0f mV]" {http="<[http://192.168.0.10//cgi-bin/webgui.fcgi?xmlitem=34.4022:60000:REGEX(value="(.*?)")]"}
+Number Pool_T1 "Temperatur T1 [%.1f °C]" {http="<[http://192.168.0.10//cgi-bin/webgui.fcgi?xmlitem=34.4033:60000:REGEX(value="(.*?)")]"}
+Number Pool_T2 "Temperatur T2 [%.1f °C]" {http="<[http://192.168.0.10//cgi-bin/webgui.fcgi?xmlitem=34.4069:60000:REGEX(value="(.*?)")]"}
+Number Pool_T3 "Temperatur T3 [%.1f °C]" {http="<[http://192.168.0.10//cgi-bin/webgui.fcgi?xmlitem=34.4071:60000:REGEX(value="(.*?)")]"}
+
+//zum sitemap file
+Frame label="Pool" {
+Text item=Pool_pH icon="flow"
+Text item=Pool_Redox icon="water"
+Text item=Pool_T1 icon="temperature"
+Text item=Pool_T2 icon="temperature"
+Text item=Pool_T3 icon="temperature"
+}
